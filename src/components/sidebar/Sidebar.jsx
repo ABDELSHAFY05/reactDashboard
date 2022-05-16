@@ -1,6 +1,5 @@
 import React from 'react'
 import './sidebar.scss'
-
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
@@ -16,10 +15,18 @@ import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined
 //import DarkModeIcon from '@mui/icons-material/DarkMode';
 //import WbSunnyOutlinedIcon from '@mui/icons-material/WbSunnyOutlined';
 import { Link } from "react-router-dom";
+import Login from '../../pages/login/Login';
+import { useNavigate } from "react-router-dom";
 //import { DarkModeContext } from "../../context/darkModeContext";
 //import { useContext } from "react";
 
 const Sidebar = () => {
+  const navigate = useNavigate()
+
+  // Log out function
+  const handleClick = () => {
+    navigate("/login")
+  }
   //const { dispatch } = useContext(DarkModeContext);
   return (
     <div className="sidebar">
@@ -85,8 +92,8 @@ const Sidebar = () => {
             <span>Profile</span>
           </li>
           <li>
-            <LogoutIcon className="icon" />
-            <span>Logout</span>
+          <a onClick={handleClick} href={Login}><LogoutIcon className="icon"/><span>logout</span></a>
+            
           </li>
         </ul>
       </div>

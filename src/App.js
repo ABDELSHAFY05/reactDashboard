@@ -8,17 +8,15 @@ import { productInputs, userInputs } from "./formSource";
 import "./style/dark.scss";
 import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
-import { AuthContext } from "./context/AuthContext";
+import RequireAuth from "./RequireAuth"
+//import { AuthContext } from "./context/AuthContext";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
 
-  const {currentUser} = useContext(AuthContext)
+  //const {currentUser} = useContext(AuthContext)
 
-  const RequireAuth = ({ children }) => {
-    return currentUser ? children : <Navigate to="/login" />;
-  };
-
+  
   return (
     <div className={darkMode ? "app dark" : "app"}>
       <BrowserRouter>
@@ -33,7 +31,7 @@ function App() {
                 </RequireAuth>
               }
             />
-            <Route path="users">
+            <Route path="/users" >
               <Route
                 index
                 element={

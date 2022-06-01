@@ -1,22 +1,45 @@
-import { createContext, useEffect, useReducer } from "react";
-import AuthReducer from "./AuthReducer";
+import React from 'react'
+import { createContext, useContext, useEffect, useState } from 'react'
+import {
+  signInWithEmailAndPassword,
+  signOut,
+  onAuthStateChanged,
+} from 'firebase/auth';
+import { auth } from '../firebase';
 
-const INITIAL_STATE = {
-  currentUser: JSON.parse(localStorage.getItem("user")) || null,
-};
+export const UserContext = createContext();
 
-export const AuthContext = createContext(INITIAL_STATE);
+export function AuthContextProvider ({ children }) {
+   const [user, setUser] = useState(null);
 
-export const AuthContextProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(AuthReducer, INITIAL_STATE);
+   function signIn (email, password)  {
+    return signInWithEmailAndPassword(auth, email, password)
+    //console.log(signInWithEmailAndPassword(auth, email, password))
+   }
+
+  function logout () {
+      return signOut(auth)
+  }
 
   useEffect(() => {
-    localStorage.setItem("user", JSON.stringify(state.currentUser));
-  }, [state.currentUser]);
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      if(currentUser!== null){
+        localStorage.setItem('token',currentUser.accessToken);
+        //console.log( localStorage.getItem('token'));
+        setUser(currentUser);} 
+    });
+    return () => {
+      unsubscribe();
+    };
+  }, []);
 
   return (
-    <AuthContext.Provider value={{ currentUser: state.currentUser, dispatch }}>
+    <UserContext.Provider value={{ user, logout, signIn }}>
       {children}
-    </AuthContext.Provider>
+    </UserContext.Provider>
   );
+};
+
+export function UserAuth () {
+  return useContext(UserContext);
 };

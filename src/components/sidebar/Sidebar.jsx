@@ -2,15 +2,8 @@ import React from 'react'
 import './sidebar.scss'
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
-import LocalShippingIcon from "@mui/icons-material/LocalShipping";
-import CreditCardIcon from "@mui/icons-material/CreditCard";
-import StoreIcon from "@mui/icons-material/Store";
-import BarChartOutlinedIcon from '@mui/icons-material/BarChartOutlined';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import LogoutIcon from '@mui/icons-material/Logout';
-import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
-import SettingsSystemDaydreamOutlinedIcon from "@mui/icons-material/SettingsSystemDaydreamOutlined";
-import PsychologyOutlinedIcon from "@mui/icons-material/PsychologyOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 //import DarkModeIcon from '@mui/icons-material/DarkMode';
 //import WbSunnyOutlinedIcon from '@mui/icons-material/WbSunnyOutlined';
@@ -19,14 +12,31 @@ import Login from '../../pages/login/Login';
 import { useNavigate } from "react-router-dom";
 //import { DarkModeContext } from "../../context/darkModeContext";
 //import { useContext } from "react";
+//import { logout } from '../../firebase';
+import { UserAuth } from '../../context/AuthContext'
+
+
+
 
 const Sidebar = () => {
-  const navigate = useNavigate()
+  const {logout} = UserAuth();
+  const navigate = useNavigate();
 
   // Log out function
-  const handleClick = () => {
-    navigate("/login")
+  const handleLogout = async() =>{
+    try{
+    await logout();
+      localStorage.removeItem('token');
+      navigate("/login");
+      //window.localStorage.removeItem("user");
+      //console.log('You are logged out')
+    } catch (e) {
+      console.log(e.message);
+    }
+    
   }
+    
+  
   //const { dispatch } = useContext(DarkModeContext);
   return (
     <div className="sidebar">
@@ -39,9 +49,16 @@ const Sidebar = () => {
       <div className="center">
         <ul>
           <p className="title">MAIN</p>
+          <Link to="/" style={{ textDecoration: "none" }}>
           <li>
             <DashboardIcon className="icon" />
             <span>Dashboard</span>
+          </li>
+          </Link>
+          <p className="title">USER</p>
+          <li>
+            <AccountCircleOutlinedIcon className="icon" />
+            <span>Profile</span>
           </li>
           <p className="title">LISTS</p>
           <Link to="/users" style={{ textDecoration: "none" }}>
@@ -50,49 +67,14 @@ const Sidebar = () => {
               <span>Users</span>
             </li>
           </Link>
-          <Link to="/products" style={{ textDecoration: "none" }}>
-            <li>
-              <StoreIcon className="icon" />
-              <span>Products</span>
-            </li>
-          </Link>
-          <li>
-            <CreditCardIcon className="icon" />
-            <span>Orders</span>
-          </li>
-          <li>
-            <LocalShippingIcon className="icon" />
-            <span>Delivery</span>
-          </li>
-          <p className="title">USEFUL</p>
-          <li>
-            <BarChartOutlinedIcon className="icon" />
-            <span>Stats</span>
-          </li>
-          <li>
-            <NotificationsNoneIcon className="icon" />
-            <span>Notifications</span>
-          </li>
-          <p className="title">SERVICE</p>
-          <li>
-            <SettingsSystemDaydreamOutlinedIcon className="icon" />
-            <span>System Health</span>
-          </li>
-          <li>
-            <PsychologyOutlinedIcon className="icon" />
-            <span>Logs</span>
-          </li>
+          <p className="title">SETTINGS</p>
           <li>
             <SettingsOutlinedIcon className="icon" />
             <span>Settings</span>
           </li>
-          <p className="title">USER</p>
+          
           <li>
-            <AccountCircleOutlinedIcon className="icon" />
-            <span>Profile</span>
-          </li>
-          <li>
-          <a onClick={handleClick} href={Login}><LogoutIcon className="icon"/><span>logout</span></a>
+          <a onClick={handleLogout} href={Login}><LogoutIcon className="icon"/><span>logout</span></a>
             
           </li>
         </ul>
@@ -108,5 +90,6 @@ const Sidebar = () => {
     </div>
   );
 };
+
 
 export default Sidebar;

@@ -68,7 +68,7 @@ const Datatable = () => {
       renderCell: (params) => {
         return (
           <div className="cellAction">
-            <Link to="/users/test" style={{ textDecoration: "none" }}>
+            <Link to="/users/current" style={{ textDecoration: "none" }}>
               <div className="viewButton">View</div>
             </Link>
             <div

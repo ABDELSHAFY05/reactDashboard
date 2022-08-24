@@ -5,6 +5,7 @@ import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import LogoutIcon from '@mui/icons-material/Logout';
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
 //import DarkModeIcon from '@mui/icons-material/DarkMode';
 //import WbSunnyOutlinedIcon from '@mui/icons-material/WbSunnyOutlined';
 import { Link } from "react-router-dom";
@@ -56,16 +57,24 @@ const Sidebar = () => {
           </li>
           </Link>
           <p className="title">USER</p>
+          <Link to="/users/current" style={{ textDecoration: "none" }}>
           <li>
             <AccountCircleOutlinedIcon className="icon" />
             <span>Profile</span>
           </li>
+          </Link>
           <p className="title">LISTS</p>
           <Link to="/users" style={{ textDecoration: "none" }}>
             <li>
               <PersonOutlineIcon className="icon" />
               <span>Users</span>
             </li>
+          </Link>
+          <Link to="/users/new" style={{ textDecoration: "none" }}>
+          <li>
+            <AddCircleOutlineOutlinedIcon className="icon" />
+            <span>Add</span>
+          </li>
           </Link>
           <p className="title">SETTINGS</p>
           <li>

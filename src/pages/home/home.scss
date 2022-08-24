@@ -4,3 +4,121 @@
         flex: 6;
     }
 }
+.greetings {
+    width: 94%;
+    color: #7451f8;
+    text-align: center;
+    font-size: 22px;
+    margin: 5px;
+    
+    margin-left: 30px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;    
+}
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap");
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+//   background-color: #f0f0f0;
+  font-family: 'Poppins', sans-serif;
+  
+  
+}
+
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  right: 3%;
+  margin-bottom: 100px;
+  
+}
+
+.container .box {
+    
+  position: relative;
+  width: 10rem;
+  height: 10rem;
+  margin: 4rem;
+  
+}
+
+.container .box:hover .imgBox {
+  transform: translate(-2rem, -2rem);
+}
+
+.container .box:hover .content {
+  transform: translate(2rem, 2rem);
+}
+
+.imgBox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  transition: all 0.5s ease-in-out;
+}
+
+.imgBox img {
+  width: 14rem;
+  height: 14rem;
+  object-fit: cover;
+  resize: both;
+  border-radius: 10px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 14rem;
+  height: 14rem;
+  padding: 0.2rem;
+  display: flex;
+  justify-content: center;
+  background-color: #f0f0f0;
+  z-index: 1;
+  align-items: flex-end;
+  text-align: center;
+  transition: 0.5s ease-in-out;
+  border-radius: 10px;
+}
+
+.content h2 {
+  display: block;
+  font-size: 1rem;
+  color: #111;
+  font-weight: 500;
+  line-height: 2rem;
+  letter-spacing: 1px;
+  margin-top: 30px;
+}
+
+.content span {
+  color: #555;
+  font-size: 0.9rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+
+@media (max-width: 700px) {
+  .container .box:hover .content {
+    transform: translate(0, 3.5rem);
+  }
+  .container .box:hover .imgBox {
+    transform: translate(0, -3.5rem);
+  }
+}

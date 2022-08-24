@@ -23,7 +23,7 @@ const Home = () => {
   const date = `${day}, ${today.getDate()} ${today.toLocaleDateString(locale, { month: 'long' })}\n\n`;
 
   const hour = today.getHours();
-  const wish = `Good ${(hour < 12 && 'Morning') || (hour < 17 && 'Afternoon') || 'Evening'}, `;
+  const wish = `Good ${(hour < 12 && 'Morning') || (hour < 17 && 'Afternoon') || 'Evening'} `;
 
   const time = today.toLocaleTimeString(locale, { hour: 'numeric', hour12: true, minute: 'numeric' });
 return (
@@ -31,9 +31,78 @@ return (
     <Sidebar/>
     <div className='homeContainer'>
     <Navbar/>
+    <div className='greetings'>
     {date},
     {time},
-    {wish}
+    {wish} 
+    </div>
+    <div class="container">
+    <div class="box">
+            <div class="imgBox">
+                <img src="https://img.freepik.com/free-photo/portrait-handsome-young-man-makes-okay-gesture-demonstrates-agreement-likes-idea-smiles-happily-wears-optical-glasses-yellow-hat-t-shirt-models-indoor-its-fine-thank-you-hand-sign_273609-30676.jpg?size=626&ext=jpg" alt=""/>
+            </div>
+            <div class="content">
+                <div><h2>Karan Singh</h2><span>Graphic Designer</span></div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="imgBox">
+                <img src="https://img.freepik.com/free-photo/portrait-handsome-young-man-makes-okay-gesture-demonstrates-agreement-likes-idea-smiles-happily-wears-optical-glasses-yellow-hat-t-shirt-models-indoor-its-fine-thank-you-hand-sign_273609-30676.jpg?size=626&ext=jpg" alt=""/>
+            </div>
+            <div class="content">
+                <div><h2>Karan Singh</h2><span>Graphic Designer</span></div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="imgBox">
+                <img src="https://image.freepik.com/free-photo/young-beautiful-woman-pink-warm-sweater-natural-look-smiling-portrait-isolated-long-hair_285396-896.jpg" alt="" />
+            </div>
+            <div class="content">
+                <div><h2>Dolly Seth</h2><span>Digital Marketing</span></div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="imgBox">
+                <img src="https://image.freepik.com/free-photo/waist-up-portrait-handsome-serious-unshaven-male-keeps-hands-together-dressed-dark-blue-shirt-has-talk-with-interlocutor-stands-against-white-wall-self-confident-man-freelancer_273609-16320.jpg" alt="" />
+            </div>
+            <div class="content">
+                <div><h2>Aakash Agrawal</h2><span>Accountant</span></div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="imgBox">
+                <img src="https://img.freepik.com/free-photo/portrait-handsome-young-man-makes-okay-gesture-demonstrates-agreement-likes-idea-smiles-happily-wears-optical-glasses-yellow-hat-t-shirt-models-indoor-its-fine-thank-you-hand-sign_273609-30676.jpg?size=626&ext=jpg" alt=""/>
+            </div>
+            <div class="content">
+                <div><h2>Karan Singh</h2><span>Graphic Designer</span></div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="imgBox">
+                <img src="https://img.freepik.com/free-photo/portrait-handsome-young-man-makes-okay-gesture-demonstrates-agreement-likes-idea-smiles-happily-wears-optical-glasses-yellow-hat-t-shirt-models-indoor-its-fine-thank-you-hand-sign_273609-30676.jpg?size=626&ext=jpg" alt=""/>
+            </div>
+            <div class="content">
+                <div><h2>Karan Singh</h2><span>Graphic Designer</span></div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="imgBox">
+                <img src="https://image.freepik.com/free-photo/young-beautiful-woman-pink-warm-sweater-natural-look-smiling-portrait-isolated-long-hair_285396-896.jpg" alt="" />
+            </div>
+            <div class="content">
+                <div><h2>Dolly Seth</h2><span>Digital Marketing</span></div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="imgBox">
+                <img src="https://image.freepik.com/free-photo/waist-up-portrait-handsome-serious-unshaven-male-keeps-hands-together-dressed-dark-blue-shirt-has-talk-with-interlocutor-stands-against-white-wall-self-confident-man-freelancer_273609-16320.jpg" alt="" />
+            </div>
+            <div class="content">
+                <div><h2>Aakash Agrawal</h2><span>Accountant</span></div>
+            </div>
+        </div>
+    </div>
+    
     </div>
     </div>
     

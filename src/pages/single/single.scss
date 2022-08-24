@@ -21,7 +21,7 @@
             top: 0;
             right: 0;
             padding: 5px;
-            font-size: 12px;
+            font-size: 16px;
             color: #7451f8;
             background-color: #7551f818;
             cursor: pointer;
@@ -33,21 +33,24 @@
             gap: 20px;
   
             .itemImg {
-              width: 100px;
-              height: 100px;
+              width: 150px;
+              height: 150px;
               border-radius: 50%;
               object-fit: cover;
+              margin-left: 40px;
             }
   
             .details {
               .itemTitle {
+                margin-left: 40px;
                 margin-bottom: 10px;
                 color: #555;
               }
   
               .detailItem {
                 margin-bottom: 10px;
-                font-size: 14px;
+                font-size: 20px;
+                margin-left: 40px;
   
                 .itemKey {
                   font-weight: bold;
@@ -56,7 +59,7 @@
                 }
   
                 .itemValue {
-                  font-weight: 300;
+                  font-weight: 400;
                 }
               }
             }
@@ -76,8 +79,8 @@
       }
   
       .title {
-        font-size: 16px;
-        color: lightgray;
+        font-size: 20px;
+        color: gray;
         margin-bottom: 20px;
       }
     }
